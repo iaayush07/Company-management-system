@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CompanyService } from '../../service/company.service';
 
 @Component({
   selector: 'app-company-form',
@@ -14,14 +15,17 @@ export class CompanyFormComponent implements OnInit {
   //for validation on submit 
   public isSubmitted: boolean
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private companyService: CompanyService
+  ) {
 
     //formbuilder
     this.companyForm = this.formBuilder.group({
       companyName: ['', [Validators.required]],
       companyDescription: ['', [Validators.required]],
       selectTags: ['', [Validators.required]],
-      file: ['', [Validators.required]],
+      file: ['',],//[Validators.required]
     })
 
     //issubmit
@@ -38,7 +42,9 @@ export class CompanyFormComponent implements OnInit {
   //save 
   onSave() {
     this.isSubmitted = true;
-    console.log(this.companyForm);
+
+    // getdata from service--
+    // this.companyService.addCompanyData(this.companyForm.value).subscribe(=>)
   }
 
 }
