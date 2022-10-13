@@ -17,17 +17,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let item of companyData">
                     <th scope="row">
                         <div>
                             <a
                                 class="rounded-circle ms-1 cursor-pointer border border-success text-decoration-none logo">
-                                1R
+                                {{item.id}}
                             </a>
                         </div>
                     </th>
                     <td>
-                        1 Rivet
+                        <a class="cursor-pointer text-decoration-none">{{item.companyName}}</a>
                     </td>
                     <td>
                         <button type="button" class="btn btn-outline-danger rounded-circle bi bi-x"

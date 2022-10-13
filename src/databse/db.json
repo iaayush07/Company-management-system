@@ -1,19 +1,22 @@
 {
-  "posts": [
+  "company": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "companyName": "1Rivet",
+      "CompanyDescription": "Kuchh bhi",
+      "selectTags": "1"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "companyName": "Tata",
+      "CompanyDescription": "Kuchh bhi",
+      "selectTags": "1"
+    },
+    {
+      "id": 3,
+      "companyName": "1Rivet",
+      "CompanyDescription": "Kuchh bhi",
+      "selectTags": "1"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
