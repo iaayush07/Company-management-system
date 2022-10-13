@@ -42,9 +42,13 @@ export class CompanyFormComponent implements OnInit {
   //save 
   onSave() {
     this.isSubmitted = true;
+    this.addCompanyData();
+  }
 
+  addCompanyData() {
     // getdata from service--
-    // this.companyService.addCompanyData(this.companyForm.value).subscribe(=>)
+    this.companyService.addCompanyData(this.companyForm.value).subscribe(res => {
+    })
   }
 
 }
