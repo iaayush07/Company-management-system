@@ -1,0 +1,27 @@
+input {
+    height: 40px;
+}
+
+input::placeholder {
+    padding-left: 15px;
+}
+
+table {
+
+    tr {
+        border: 1px solid green;
+        height: 50px;
+    }
+
+    .logo {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+}
