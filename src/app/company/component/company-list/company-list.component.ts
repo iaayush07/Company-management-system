@@ -22,9 +22,17 @@ export class CompanyListComponent implements OnInit {
     this.getCompanyData();
   }
 
+  //for getting data from database
   getCompanyData() {
     this.companyService.getCompanyData().subscribe(res => {
       this.companyData = res
+    })
+  }
+
+  //for deleting data from list
+  deleteData(id: any) {
+    this.companyService.deleteData(Number(id)).subscribe(res => {
+      this.getCompanyData();
     })
   }
 

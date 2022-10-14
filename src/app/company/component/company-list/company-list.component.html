@@ -27,11 +27,12 @@
                         </div>
                     </th>
                     <td>
-                        <a class="cursor-pointer text-decoration-none">{{item.companyName}}</a>
+                        <a class="cursor-pointer text-decoration-none"
+                            [routerLink]="['edit/'+item.id]">{{item.companyName}}</a>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-outline-danger rounded-circle bi bi-x"
-                            routerLink="add"></button>
+                        <button type="button" class="btn btn-outline-danger rounded-circle bi bi-x" routerLink="add"
+                            (click)="deleteData(item.id)"></button>
                     </td>
                 </tr>
             </tbody>
