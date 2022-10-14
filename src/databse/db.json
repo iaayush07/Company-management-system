@@ -2,24 +2,24 @@
   "company": [
     {
       "id": 1,
-      "companyName": "1Rivet",
+      "companyName": "1 Rivet",
       "CompanyDescription": "Kuchh bhi",
       "selectTags": "1"
     },
     {
       "id": 2,
-      "companyName": "Tata",
+      "companyName": "Tata 1",
       "CompanyDescription": "Kuchh bhi",
       "selectTags": "1"
     },
     {
       "id": 3,
-      "companyName": "1Rivet",
+      "companyName": "1Rivet 1",
       "CompanyDescription": "Kuchh bhi",
       "selectTags": "1"
     },
     {
-      "companyName": "toshal",
+      "companyName": "toshal 1",
       "companyDescription": "gsgs",
       "selectTags": "1",
       "file": "",
