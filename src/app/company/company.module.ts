@@ -9,6 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CompanyService } from './service/company.service';
+import { SharedModule } from '../shared/shared.module';
+// import { CompanyPipe } from '../shared/pipe/company.pipe';++
+
 
 
 @NgModule({
@@ -21,10 +24,13 @@ import { CompanyService } from './service/company.service';
     CommonModule,
     CompanyRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
+    // SharedModule
   ],
   providers: [
-    CompanyService
+    CompanyService,
+    // CompanyPipe
   ]
 })
 export class CompanyModule { }
