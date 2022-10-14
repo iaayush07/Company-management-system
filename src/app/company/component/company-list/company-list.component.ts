@@ -12,10 +12,14 @@ export class CompanyListComponent implements OnInit {
   //store model data in companydata
   public companyData: company[]
 
+  //
+  public serchBoxText: string;
+
   constructor(
     private companyService: CompanyService
   ) {
     this.companyData = [];
+    this.serchBoxText = ''
   }
 
   ngOnInit(): void {
