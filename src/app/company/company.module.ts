@@ -5,11 +5,12 @@ import { CompanyRoutingModule } from './company-routing.module';
 import { CompanyComponent } from './company.component';
 import { CompanyListComponent } from './component/company-list/company-list.component';
 import { CompanyFormComponent } from './component/company-form/company-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CompanyService } from './service/company.service';
 import { SharedModule } from '../shared/shared.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 // import { CompanyPipe } from '../shared/pipe/company.pipe';++
 
 
@@ -25,7 +26,9 @@ import { SharedModule } from '../shared/shared.module';
     CompanyRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    NgSelectModule,
+    FormsModule
     // SharedModule
   ],
   providers: [

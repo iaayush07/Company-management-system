@@ -11,6 +11,8 @@ import { CompanyService } from '../../service/company.service';
 })
 export class CompanyFormComponent implements OnInit {
 
+  //for add and edit title and button
+  public title: string;
   // companyform
   public companyForm: FormGroup;
 
@@ -23,11 +25,21 @@ export class CompanyFormComponent implements OnInit {
   //for storing company data 
   public companyList: company[]
 
+  //tags declaration
+  fields = [
+    { id: 1, name: 'Frontend' },
+    { id: 2, name: 'Backend' },
+    { id: 4, name: 'QA' },
+    { id: 5, name: 'BA' }
+  ];
+
   constructor(
     private formBuilder: FormBuilder,
     private companyService: CompanyService,
     private actRoute: ActivatedRoute
   ) {
+    //title
+    this.title = 'Add'
 
     //formbuilder
     this.companyForm = this.formBuilder.group({
@@ -57,7 +69,7 @@ export class CompanyFormComponent implements OnInit {
   }
   //ngoninit
   ngOnInit(): void {
-
+    this.title = this.id ? 'Edit' : 'Add';
   }
   //save 
   onSave() {
