@@ -25,6 +25,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //using subject 
     this.sblService.subjectData$.subscribe((res: any) => {
       if (res) {
         this.getCompanyData();
