@@ -1,13 +1,14 @@
 {
   "company": [
     {
-      "id": 1,
       "companyName": "1 Rivet",
-      "CompanyDescription": "Kuchh bhi",
-      "selectTags": "1"
+      "companyDescription": "opjkgg",
+      "selectTags": "1",
+      "file": "",
+      "id": 1
     },
     {
-      "companyName": "Tata 1234",
+      "companyName": "Tata 12345",
       "companyDescription": "afff",
       "selectTags": "1",
       "file": "",
@@ -39,6 +40,13 @@
       "selectTags": "",
       "file": "",
       "id": 8
+    },
+    {
+      "companyName": "Ayush Dhimmar",
+      "companyDescription": "gg",
+      "selectTags": "",
+      "file": "",
+      "id": 9
     }
   ]
 }
