@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { company } from '../../model/company.model';
 import { CompanyService } from '../../service/company.service';
+import { SiblingCommunicationService } from '../../service/sibling-communication.service';
 
 @Component({
   selector: 'app-company-list',
@@ -16,19 +17,26 @@ export class CompanyListComponent implements OnInit {
   public serchBoxText: string;
 
   constructor(
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private sblService: SiblingCommunicationService
   ) {
     this.companyData = [];
     this.serchBoxText = ''
   }
 
   ngOnInit(): void {
+    this.sblService.subjectData$.subscribe((res: any) => {
+      if (res) {
+        this.getCompanyData();
+      }
+    })
     this.getCompanyData();
   }
 
+
   //for getting data from database
   getCompanyData() {
-    this.companyService.getCompanyData().subscribe(res => {
+    this.companyService.getCompanyData().subscribe((res: company[]) => {
       this.companyData = res
     })
   }

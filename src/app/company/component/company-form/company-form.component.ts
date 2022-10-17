@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute } from '@angular/router';
 import { company } from '../../model/company.model';
 import { CompanyService } from '../../service/company.service';
+import { SiblingCommunicationService } from '../../service/sibling-communication.service';
 
 @Component({
   selector: 'app-company-form',
@@ -36,7 +37,8 @@ export class CompanyFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private companyService: CompanyService,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private sblService: SiblingCommunicationService
   ) {
     //title
     this.title = 'Add'
@@ -86,6 +88,7 @@ export class CompanyFormComponent implements OnInit {
   addCompanyData() {
     // getdata from service--
     this.companyService.addCompanyData(this.companyForm.value).subscribe(res => {
+      this.sblService.getData(res);
       this.reset();
     })
   }
@@ -103,9 +106,8 @@ export class CompanyFormComponent implements OnInit {
   }
   //for updating form 
   updateData() {
-    this.companyService.updateData(this.companyForm.value, this.id).subscribe(res => {
-      console.log(res);
-
+    this.companyService.updateData(this.companyForm.value, Number(this.id)).subscribe(res => {
+      this.sblService.getData(res);
     })
   }
   //get data 

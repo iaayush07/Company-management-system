@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CompanyService } from './service/company.service';
 import { SharedModule } from '../shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { SiblingCommunicationService } from './service/sibling-communication.service';
 // import { CompanyPipe } from '../shared/pipe/company.pipe';++
 
 
@@ -33,6 +34,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
   ],
   providers: [
     CompanyService,
+    SiblingCommunicationService
     // CompanyPipe
   ]
 })
