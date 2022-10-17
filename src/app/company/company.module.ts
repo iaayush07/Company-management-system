@@ -12,6 +12,7 @@ import { CompanyService } from './service/company.service';
 import { SharedModule } from '../shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SiblingCommunicationService } from './service/sibling-communication.service';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 // import { CompanyPipe } from '../shared/pipe/company.pipe';++
 
 
@@ -25,6 +26,7 @@ import { SiblingCommunicationService } from './service/sibling-communication.ser
   imports: [
     CommonModule,
     CompanyRoutingModule,
+    BreadcrumbModule,
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
