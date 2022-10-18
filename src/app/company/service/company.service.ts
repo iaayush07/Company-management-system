@@ -19,7 +19,11 @@ export class CompanyService {
     return this.http.get<company[]>(url)
   }
 
-  //for adding data
+  /**
+   * add data in database
+   * @param company 
+   * @returns company
+   */
   addCompanyData(company: company): Observable<company> {
     const url: string = this.baseUrl;
     return this.http.post<company>(url, company);
