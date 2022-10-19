@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute } from '@angular/router';
 import { company } from '../../model/company.model';
 import { CompanyService } from '../../service/company.service';
+import { NotificationService } from '../../service/notification.service';
 import { SiblingCommunicationService } from '../../service/sibling-communication.service';
 
 @Component({
@@ -38,7 +39,8 @@ export class CompanyFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private companyService: CompanyService,
     private actRoute: ActivatedRoute,
-    private sblService: SiblingCommunicationService
+    private sblService: SiblingCommunicationService,
+    private notificationService: NotificationService
   ) {
     //title
     this.title = 'Add'
@@ -47,7 +49,7 @@ export class CompanyFormComponent implements OnInit {
     this.companyForm = this.formBuilder.group({
       companyName: ['', [Validators.required]],
       companyDescription: ['', [Validators.required]],
-      selectTags: ['', [Validators.required]],
+      selectTags: [''],
       file: ['',],//[Validators.required]
     })
 
@@ -87,6 +89,7 @@ export class CompanyFormComponent implements OnInit {
         this.addCompanyData();
       }
     }
+    this.notificationService.showSuccess();
   }
 
   addCompanyData() {
