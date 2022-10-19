@@ -14,6 +14,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { SiblingCommunicationService } from './service/sibling-communication.service';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { CompanyResolver } from './service/company.resolver';
+import { NotificationService } from './service/notification.service';
 // import { CompanyPipe } from '../shared/pipe/company.pipe';++
 
 
@@ -38,7 +39,8 @@ import { CompanyResolver } from './service/company.resolver';
   providers: [
     CompanyService,
     SiblingCommunicationService,
-    CompanyResolver
+    CompanyResolver,
+    NotificationService
     // CompanyPipe
   ]
 })

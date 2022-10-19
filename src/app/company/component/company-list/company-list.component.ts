@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { company } from '../../model/company.model';
 import { CompanyService } from '../../service/company.service';
+import { NotificationService } from '../../service/notification.service';
 import { SiblingCommunicationService } from '../../service/sibling-communication.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class CompanyListComponent implements OnInit {
 
   constructor(
     private companyService: CompanyService,
-    private sblService: SiblingCommunicationService
+    private sblService: SiblingCommunicationService,
+    private notificationService: NotificationService
   ) {
     this.companyData = [];
     this.serchBoxText = ''
@@ -43,9 +45,11 @@ export class CompanyListComponent implements OnInit {
 
   //for deleting data from list
   deleteData(id: any) {
+    confirm('Are you sure you want to delete?')
     this.companyService.deleteData(Number(id)).subscribe(res => {
       this.getCompanyData();
     })
+    this.notificationService.ShowDelete()
   }
 
 }
