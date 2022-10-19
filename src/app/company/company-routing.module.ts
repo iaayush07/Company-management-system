@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompanyComponent } from './company.component';
 import { CompanyFormComponent } from './component/company-form/company-form.component';
+import { CompanyResolver } from './service/company.resolver';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
       {
         path: 'edit/:id',
         component: CompanyFormComponent,
-        data: { breadcrumb: { alias: 'Edit' } }
+        data: { breadcrumb: { alias: 'Edit' } },
+        resolve: { company: CompanyResolver }
       }
     ]
   }
