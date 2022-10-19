@@ -13,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SiblingCommunicationService } from './service/sibling-communication.service';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { CompanyResolver } from './service/company.resolver';
 // import { CompanyPipe } from '../shared/pipe/company.pipe';++
 
 
@@ -36,7 +37,8 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
   ],
   providers: [
     CompanyService,
-    SiblingCommunicationService
+    SiblingCommunicationService,
+    CompanyResolver
     // CompanyPipe
   ]
 })

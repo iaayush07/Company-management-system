@@ -59,7 +59,7 @@ export class CompanyFormComponent implements OnInit {
       this.id = res['id'];
 
       //getting data through id
-      this.getID();
+      // this.getID();
     })
     //initializing company
     this.companyList = []
@@ -72,17 +72,21 @@ export class CompanyFormComponent implements OnInit {
   //ngoninit
   ngOnInit(): void {
     this.title = this.id ? 'Edit' : 'Add';
+
+    this.actRoute.data.subscribe((data: any) => {
+      this.companyForm.patchValue(data['company'])
+    })
   }
   //save 
   onSave() {
     this.isSubmitted = true;
-    // if (this.companyForm.valid) {
-    if (this.id) {
-      this.updateData();
-    } else {
-      this.addCompanyData();
+    if (this.companyForm.valid) {
+      if (this.id) {
+        this.updateData();
+      } else {
+        this.addCompanyData();
+      }
     }
-
   }
 
   addCompanyData() {
@@ -99,11 +103,11 @@ export class CompanyFormComponent implements OnInit {
   }
 
   //for getting id 
-  getID() {
-    this.companyService.getById(Number(this.id)).subscribe((res: company) => {
-      this.companyForm.patchValue(res);
-    })
-  }
+  // getID() {
+  //   this.companyService.getById(Number(this.id)).subscribe((res: company) => {
+  //     this.companyForm.patchValue(res);
+  //   })
+  // }
   //for updating form 
   updateData() {
     this.companyService.updateData(this.companyForm.value, Number(this.id)).subscribe(res => {

@@ -1,7 +1,7 @@
 {
   "company": [
     {
-      "companyName": "Tata 12345",
+      "companyName": "Tata 123",
       "companyDescription": "afff",
       "selectTags": "1",
       "file": "",
@@ -33,6 +33,13 @@
       "selectTags": "",
       "file": "",
       "id": 9
+    },
+    {
+      "companyName": "Aydu jasdh",
+      "companyDescription": "nllka",
+      "selectTags": "",
+      "file": "",
+      "id": 10
     }
   ]
 }
