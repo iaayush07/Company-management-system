@@ -12,7 +12,9 @@ export class SearchPipe implements PipeTransform {
     if (!companyData || !searchTxt) {
       return companyData;
     }
-    return companyData.filter((item) => item.companyName?.toLocaleLowerCase().includes(searchTxt.toLocaleLowerCase()))
+    return companyData.filter((item) =>
+      item.companyName?.toLocaleLowerCase().includes(searchTxt.toLocaleLowerCase()) ||
+      item.companyDescription?.toLocaleLowerCase().includes(searchTxt.toLocaleLowerCase()))
   }
 }
 
