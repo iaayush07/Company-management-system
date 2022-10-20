@@ -1,7 +1,8 @@
 <div class="h-100 ms-4">
     <div class="d-flex justify-content-between w-100 mt-4">
         <h4>Company</h4>
-        <button type="button" class="btn btn-outline-success rounded-circle" routerLink="add"> +</button>
+        <button type="button" class="btn btn-outline-success rounded-circle" routerLink="add" (click)="bcRoute()">
+            +</button>
     </div>
     <div class="d-flex w-100 mt-3" role="search">
         <input class="form-control border-success border-1 w-100" type="search" placeholder="Search" aria-label="Search"
@@ -27,8 +28,8 @@
                         </div>
                     </th>
                     <td>
-                        <a class="cursor-pointer text-decoration-none"
-                            [routerLink]="['edit/'+item.id]">{{item.companyName}}</a>
+                        <a class="cursor-pointer text-decoration-none" [routerLink]="['edit/'+item.id]"
+                            (click)="bcEditRoute(item.companyName)">{{item.companyName}}</a>
                     </td>
                     <td>
                         <button type="button" class="btn btn-outline-danger rounded-circle bi bi-x" routerLink="add"
