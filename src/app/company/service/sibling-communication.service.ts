@@ -13,6 +13,10 @@ export class SiblingCommunicationService {
     this.subjectData$ = this.subjectData.asObservable();
   }
 
+  /**
+   * get data using subject
+   * @param company 
+   */
   getData(company: company) {
     this.subjectData.next(company);
   }

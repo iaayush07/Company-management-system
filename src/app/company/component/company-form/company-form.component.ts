@@ -15,6 +15,7 @@ export class CompanyFormComponent implements OnInit {
 
   //for add and edit title and button
   public title: string;
+
   // companyform
   public companyForm: FormGroup;
 
@@ -67,7 +68,9 @@ export class CompanyFormComponent implements OnInit {
     this.companyList = []
   }
 
-  //getter function for validation
+  /**
+   * getter function
+   */
   get f(): { [key: string]: AbstractControl; } {
     return this.companyForm.controls;
   }
@@ -75,11 +78,16 @@ export class CompanyFormComponent implements OnInit {
   ngOnInit(): void {
     this.title = this.id ? 'Edit' : 'Add';
 
+    //patch value using resolver
     this.actRoute.data.subscribe((data: any) => {
       this.companyForm.patchValue(data['company'])
     })
   }
-  //save 
+
+  /**
+   * save data 
+   * return CompanyForm value
+   */
   onSave() {
     this.isSubmitted = true;
     if (this.companyForm.valid) {
@@ -89,9 +97,14 @@ export class CompanyFormComponent implements OnInit {
         this.addCompanyData();
       }
     }
+    //using toastr
     this.notificationService.showSuccess();
   }
 
+  /**
+   * Add companydata 
+   * return companyForm value
+   */
   addCompanyData() {
     // getdata from service--
     this.companyService.addCompanyData(this.companyForm.value).subscribe(res => {
@@ -111,7 +124,11 @@ export class CompanyFormComponent implements OnInit {
   //     this.companyForm.patchValue(res);
   //   })
   // }
-  //for updating form 
+
+  /**
+   * Update Data 
+   * return formValue
+   */
   updateData() {
     this.companyService.updateData(this.companyForm.value, Number(this.id)).subscribe(res => {
       this.sblService.getData(res);

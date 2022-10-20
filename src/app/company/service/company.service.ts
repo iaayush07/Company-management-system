@@ -29,19 +29,32 @@ export class CompanyService {
     return this.http.post<company>(url, company);
   }
 
-  //for delete data from list
+  /**
+   * delete data from database
+   * @param id number
+   * @returns company
+   */
   deleteData(id: number): Observable<company> {
     const url: string = this.baseUrl + id;
     return this.http.delete<company>(url);
   }
 
-  //getbyID
+  /**
+   * get id for editing data
+   * @param id 
+   * @returns id
+   */
   getById(id: number): Observable<company> {
     const url: string = this.baseUrl + id;
     return this.http.get<company>(url);
   }
 
-  //update user
+  /**
+   * for updating data
+   * @param company 
+   * @param id 
+   * @returns updated company
+   */
   updateData(company: company, id: number): Observable<company> {
     const url: string = this.baseUrl + id;
     return this.http.put<company>(url, company)

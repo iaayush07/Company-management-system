@@ -45,7 +45,11 @@ export class CompanyListComponent implements OnInit {
     })
   }
 
-  //for deleting data from list
+  /**
+   * delete data 
+   * @param id 
+   * return company
+   */
   deleteData(id: any) {
     confirm('Are you sure you want to delete?')
     this.companyService.deleteData(Number(id)).subscribe(res => {
