@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from 'src/app/core/service/breadcrumb.service';
 import { company } from '../../model/company.model';
 import { CompanyService } from '../../service/company.service';
 import { NotificationService } from '../../service/notification.service';
@@ -20,7 +21,8 @@ export class CompanyListComponent implements OnInit {
   constructor(
     private companyService: CompanyService,
     private sblService: SiblingCommunicationService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private bcService: BreadcrumbService
   ) {
     this.companyData = [];
     this.serchBoxText = ''
@@ -50,6 +52,14 @@ export class CompanyListComponent implements OnInit {
       this.getCompanyData();
     })
     this.notificationService.ShowDelete()
+  }
+
+  //breadcrumb route
+  bcRoute() {
+    this.bcService.breadcrumb.next('add')
+  }
+  bcEditRoute(companyName: string) {
+    this.bcService.breadcrumb.next(companyName)
   }
 
 }
