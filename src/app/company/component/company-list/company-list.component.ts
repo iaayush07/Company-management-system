@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-//-//////////////////////////
-=======
 import { BreadcrumbService } from 'src/app/core/service/breadcrumb.service';
->>>>>>> f93db42aa10c6eb38e0981126187044cc37b5893
 import { company } from '../../model/company.model';
 import { CompanyService } from '../../service/company.service';
 import { NotificationService } from '../../service/notification.service';
@@ -28,12 +24,8 @@ export class CompanyListComponent implements OnInit {
   constructor(
     private companyService: CompanyService,
     private sblService: SiblingCommunicationService,
-<<<<<<< HEAD
-    private dialog: Dialog
-=======
     private notificationService: NotificationService,
     private bcService: BreadcrumbService
->>>>>>> f93db42aa10c6eb38e0981126187044cc37b5893
   ) {
     this.companyData = [];
     this.serchBoxText = ''
@@ -62,14 +54,6 @@ export class CompanyListComponent implements OnInit {
    * return company
    */
   deleteData(id: any) {
-<<<<<<< HEAD
-    this.dialog.open(DynamicDeleteComponent, {
-      minWidth: '500px',
-    });
-    // this.companyService.deleteData(Number(id)).subscribe(res => {
-    //   this.getCompanyData();
-    // })
-=======
     confirm('Are you sure you want to delete?')
     this.companyService.deleteData(Number(id)).subscribe(res => {
       this.getCompanyData();
@@ -83,7 +67,6 @@ export class CompanyListComponent implements OnInit {
   }
   bcEditRoute(companyName: string) {
     this.bcService.breadcrumb.next(companyName)
->>>>>>> f93db42aa10c6eb38e0981126187044cc37b5893
   }
 
 }
