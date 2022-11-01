@@ -13,8 +13,13 @@ import { SharedModule } from '../shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SiblingCommunicationService } from './service/sibling-communication.service';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+<<<<<<< HEAD
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DynamicDeleteComponent } from './component/dynamic-delete/dynamic-delete.component';
+=======
+import { CompanyResolver } from './service/company.resolver';
+import { NotificationService } from './service/notification.service';
+>>>>>>> f93db42aa10c6eb38e0981126187044cc37b5893
 // import { CompanyPipe } from '../shared/pipe/company.pipe';++
 
 
@@ -40,7 +45,9 @@ import { DynamicDeleteComponent } from './component/dynamic-delete/dynamic-delet
   ],
   providers: [
     CompanyService,
-    SiblingCommunicationService
+    SiblingCommunicationService,
+    CompanyResolver,
+    NotificationService
     // CompanyPipe
   ]
 })

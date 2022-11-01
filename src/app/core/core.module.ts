@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
-import { BreadcrumbModule } from 'xng-breadcrumb';
+import { BreadcrumbService } from './service/breadcrumb.service';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,10 +12,13 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
   ],
   imports: [
     CommonModule,
-    BreadcrumbModule
+    RouterModule
   ],
   exports: [
     HeaderComponent
+  ],
+  providers: [
+    BreadcrumbService
   ]
 })
 export class CoreModule { }

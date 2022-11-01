@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute } from '@angular/router';
 import { company } from '../../model/company.model';
 import { CompanyService } from '../../service/company.service';
+import { NotificationService } from '../../service/notification.service';
 import { SiblingCommunicationService } from '../../service/sibling-communication.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class CompanyFormComponent implements OnInit {
 
   //for add and edit title and button
   public title: string;
+
   // companyform
   public companyForm: FormGroup;
 
@@ -38,7 +40,8 @@ export class CompanyFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private companyService: CompanyService,
     private actRoute: ActivatedRoute,
-    private sblService: SiblingCommunicationService
+    private sblService: SiblingCommunicationService,
+    private notificationService: NotificationService
   ) {
     //title
     this.title = 'Add'
@@ -47,7 +50,7 @@ export class CompanyFormComponent implements OnInit {
     this.companyForm = this.formBuilder.group({
       companyName: ['', [Validators.required]],
       companyDescription: ['', [Validators.required]],
-      selectTags: ['', [Validators.required]],
+      selectTags: [''],
       file: ['',],//[Validators.required]
     })
 
@@ -59,32 +62,49 @@ export class CompanyFormComponent implements OnInit {
       this.id = res['id'];
 
       //getting data through id
-      this.getID();
+      // this.getID();
     })
     //initializing company
     this.companyList = []
   }
 
-  //getter function for validation
+  /**
+   * getter function
+   */
   get f(): { [key: string]: AbstractControl; } {
     return this.companyForm.controls;
   }
   //ngoninit
   ngOnInit(): void {
     this.title = this.id ? 'Edit' : 'Add';
+
+    //patch value using resolver
+    this.actRoute.data.subscribe((data: any) => {
+      this.companyForm.patchValue(data['company'])
+    })
   }
-  //save 
+
+  /**
+   * save data 
+   * return CompanyForm value
+   */
   onSave() {
     this.isSubmitted = true;
-    // if (this.companyForm.valid) {
-    if (this.id) {
-      this.updateData();
-    } else {
-      this.addCompanyData();
+    if (this.companyForm.valid) {
+      if (this.id) {
+        this.updateData();
+      } else {
+        this.addCompanyData();
+      }
     }
-
+    //using toastr
+    this.notificationService.showSuccess();
   }
 
+  /**
+   * Add companydata 
+   * return companyForm value
+   */
   addCompanyData() {
     // getdata from service--
     this.companyService.addCompanyData(this.companyForm.value).subscribe(res => {
@@ -99,12 +119,16 @@ export class CompanyFormComponent implements OnInit {
   }
 
   //for getting id 
-  getID() {
-    this.companyService.getById(Number(this.id)).subscribe((res: company) => {
-      this.companyForm.patchValue(res);
-    })
-  }
-  //for updating form 
+  // getID() {
+  //   this.companyService.getById(Number(this.id)).subscribe((res: company) => {
+  //     this.companyForm.patchValue(res);
+  //   })
+  // }
+
+  /**
+   * Update Data 
+   * return formValue
+   */
   updateData() {
     this.companyService.updateData(this.companyForm.value, Number(this.id)).subscribe(res => {
       this.sblService.getData(res);

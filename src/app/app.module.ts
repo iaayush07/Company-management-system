@@ -7,6 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoreModule } from './core/core.module';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +18,14 @@ import { BreadcrumbService } from 'xng-breadcrumb';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      progressBar: true,
+      timeOut: 2000,
+      extendedTimeOut: 1000,
+    })
   ],
   providers: [BreadcrumbService],
   bootstrap: [AppComponent]
