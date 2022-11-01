@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+//-//////////////////////////
 import { company } from '../../model/company.model';
 import { CompanyService } from '../../service/company.service';
 import { SiblingCommunicationService } from '../../service/sibling-communication.service';
+//----------------------------------
+import { Dialog } from '@angular/cdk/dialog';
+import { DynamicDeleteComponent } from '../dynamic-delete/dynamic-delete.component';
 
 @Component({
   selector: 'app-company-list',
@@ -18,7 +22,8 @@ export class CompanyListComponent implements OnInit {
 
   constructor(
     private companyService: CompanyService,
-    private sblService: SiblingCommunicationService
+    private sblService: SiblingCommunicationService,
+    private dialog: Dialog
   ) {
     this.companyData = [];
     this.serchBoxText = ''
@@ -43,9 +48,12 @@ export class CompanyListComponent implements OnInit {
 
   //for deleting data from list
   deleteData(id: any) {
-    this.companyService.deleteData(Number(id)).subscribe(res => {
-      this.getCompanyData();
-    })
+    this.dialog.open(DynamicDeleteComponent, {
+      minWidth: '500px',
+    });
+    // this.companyService.deleteData(Number(id)).subscribe(res => {
+    //   this.getCompanyData();
+    // })
   }
 
 }

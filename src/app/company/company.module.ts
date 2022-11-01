@@ -13,6 +13,8 @@ import { SharedModule } from '../shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SiblingCommunicationService } from './service/sibling-communication.service';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { DynamicDeleteComponent } from './component/dynamic-delete/dynamic-delete.component';
 // import { CompanyPipe } from '../shared/pipe/company.pipe';++
 
 
@@ -21,7 +23,8 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
   declarations: [
     CompanyComponent,
     CompanyListComponent,
-    CompanyFormComponent
+    CompanyFormComponent,
+    DynamicDeleteComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +34,8 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
     HttpClientModule,
     SharedModule,
     NgSelectModule,
-    FormsModule
+    FormsModule,
+    OverlayModule
     // SharedModule
   ],
   providers: [
